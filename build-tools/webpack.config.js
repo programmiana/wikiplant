@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: ["./src/index.tsx"],
+    app:  ["regenerator-runtime/runtime.js", "./src/index.tsx"],
     vendor: ["react", "react-dom"],
   },
   output: {
