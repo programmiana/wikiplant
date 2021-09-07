@@ -8,7 +8,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "js/[name].bundle.js",
+    filename: '[name].js',
+    publicPath: '/'
   },
   devtool: "source-map",
   resolve: {
@@ -17,6 +18,8 @@ module.exports = {
   devServer: {
     contentBase: "./dist",
     port: 8000,
+    historyApiFallback: true,
+
   },
   module: {
     rules: [
@@ -24,6 +27,10 @@ module.exports = {
         test: /\.(ts|js)x?$/,
         exclude: "/node_modules",
         loader: "babel-loader",
+      },
+      {
+        test: /\.(woff2|woff|eot|ttf|otf)$/,
+        use: ["file-loader"],
       },
     ],
   },
